@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+import argparse
+import sys
+
+from CalcRating import CalcRating
+from DataReader import DataReader
+from SpecialStudentCalc import SpecialStudentCalc
+from TextDataReader import TextDataReader
+from Types import DataType
+from YAMLDataReader import YAMLDataReader
+
+
+def get_path_from_arguments(args) -> str:
+    parser = argparse.ArgumentParser(description="Path to datafile")
+    parser.add_argument("-p", dest="path", type=str, required=True,
+                        help="Path to datafile")
+    args = parser.parse_args(args)
+    return args.path
+
+
+def get_reader(path: str) -> DataReader:
+    if path.endswith((".yaml", ".yml")):
+        return YAMLDataReader()
+    return TextDataReader()
+
+
+def print_special_student(students: DataType) -> None:
+    calc = SpecialStudentCalc(students)
+    print("Special student (variant 6): ", calc.find_or_message())
+
+
+def main():
+    path = get_path_from_arguments(sys.argv[1:])
+
+    reader = get_reader(path)
+    students = reader.read(path)
+    print("Students: ", students)
+
+    rating = CalcRating(students).calc()
+    print("Rating: ", rating)
+
+    print_special_student(students)
+
+
+if __name__ == "__main__":
+    main()
