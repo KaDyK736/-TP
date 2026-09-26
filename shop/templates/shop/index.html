@@ -2,21 +2,35 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Товары</title>
+    <title>Магазин компьютеров</title>
 </head>
 <body>
     <div>
-        <h3>Список</h3>
+        <h3>Магазин компьютеров — список товаров</h3>
+        <form method="post" action="/">{% csrf_token %}
+            <label for="id_promo_code">Промокод:</label>
+            <input id="id_promo_code" type="text" name="promo_code" />
+            <input type="submit" value="Активировать" />
+        </form>
+        {% if promo_error %}
+            <p style="color: red;">Такого промокода нет, дополнительная
+                проверка не выполнена.</p>
+        {% endif %}
+        {% if active_promo_codes %}
+            <p>Активные промокоды: {{ active_promo_codes|join:", " }}</p>
+        {% endif %}
         <table>
             <tr>
                 <td><p>Наименование</p></td>
                 <td><p>Цена</p></td>
+                <td><p>Промокод</p></td>
                 <td></td>
             </tr>
             {% for p in products %}
                 <tr>
                     <td><p>{{ p.name }}</p></td>
                     <td><p>{{ p.price }}</p></td>
+                    <td><p>{% if p.promo_code %}{{ p.promo_code.code }}{% endif %}</p></td>
                     <td><p><a href="/buy/{{ p.id }}">Купить</a></p></td>
                 </tr>
             {% endfor %}
