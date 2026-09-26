@@ -1,0 +1,59 @@
+- model: shop.promocode
+  pk: 1
+  fields:
+    code: GAMER
+    description: Игровые аксессуары и мебель
+- model: shop.promocode
+  pk: 2
+  fields:
+    code: STUDENT
+    description: Товары для студентов
+- model: shop.promocode
+  pk: 3
+  fields:
+    code: NEWYEAR
+    description: Праздничная подборка
+- model: shop.product
+  pk: 1
+  fields:
+    name: Ноутбук Lenovo IdeaPad 3
+    price: 45000
+- model: shop.product
+  pk: 2
+  fields:
+    name: Монитор Samsung Odyssey G3
+    price: 13000
+- model: shop.product
+  pk: 3
+  fields:
+    name: Клавиатура A4Tech KR-8510
+    price: 2200
+- model: shop.product
+  pk: 4
+  fields:
+    name: Мышь Logitech M185
+    price: 1400
+- model: shop.product
+  pk: 5
+  fields:
+    name: Игровое кресло ZX Gaming
+    price: 24000
+    promo_code: 1
+- model: shop.product
+  pk: 6
+  fields:
+    name: Руль Logitech G29
+    price: 22000
+    promo_code: 1
+- model: shop.product
+  pk: 7
+  fields:
+    name: Учебный нетбук ASUS VivoBook Go
+    price: 21000
+    promo_code: 2
+- model: shop.product
+  pk: 8
+  fields:
+    name: Подсветка монитора Xiaomi YOUTH
+    price: 1900
+    promo_code: 3

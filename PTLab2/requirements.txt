@@ -1,0 +1,4 @@
+Django>=4.2,<5.1
+PyYAML
+# Раскомментируйте для работы с PostgreSQL (по методичке):
+# psycopg2-binary
