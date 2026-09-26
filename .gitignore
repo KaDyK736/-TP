@@ -1,3 +1,25 @@
+# Python
 __pycache__/
-.DS_Store
+*.py[cod]
+*.egg-info/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+media/
 .env
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE / editor files
+.idea/
+.vscode/
+*.swp
+
+# OS files
+Thumbs.db
+.DS_Store
