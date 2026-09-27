@@ -10,6 +10,10 @@ staticfiles/
 media/
 .env
 
+# Coverage artifacts
+.coverage
+htmlcov/
+
 # Virtual environments
 venv/
 .venv/
