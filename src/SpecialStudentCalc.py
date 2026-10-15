@@ -21,7 +21,7 @@ class SpecialStudentCalc:
     def find(self) -> Optional[str]:
         for student in self.data:
             good = [subject for subject in self.data[student]
-                    if subject[1] >= self.min_score]
+                    if subject[1] > self.min_score]
             if len(good) >= self.min_subjects:
                 return student
         return None
